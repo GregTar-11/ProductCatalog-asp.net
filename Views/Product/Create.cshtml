@@ -1,0 +1,42 @@
+@* @model ProductCatalog.Models.Product
+
+@{
+    ViewData["Title"] = "Создать продукт";
+}
+
+<h2>Создать продукт</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>
+<a asp-action="ProduktIndex">Назад к списку</a>
+This is the Create view for adding a new product. It includes fields for the product name and price, and a submit button to save the product. *@
+
+@model ProductCatalog.Models.Product
+
+@{
+    ViewData["Title"] = "Создать продукт";
+}
+
+<h2>Создать продукт</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Сохранить</button>
+</form>
+<a asp-action="ProduktIndex">Назад к списку</a>

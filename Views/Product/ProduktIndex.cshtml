@@ -1,0 +1,44 @@
+@model IEnumerable<ProductCatalog.Models.Product>
+
+
+@{
+    ViewData["Title"] = "Список продуктов";
+}
+
+<h2>Список продуктов </h2>
+<p>
+    <a asp-controller="Product" asp-action="Create" class="btn btn-primary">Создать</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Название</th>
+        <th>Цена</th>
+        <th>Действия</th>
+    </tr>
+    
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Price</td>
+        <td>
+        <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+        <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+        <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+    
+        </td>
+        <td>
+            <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id">Подробнее</a>
+            
+    </tr>
+    
+    
+    
+
+}
+</table>
+

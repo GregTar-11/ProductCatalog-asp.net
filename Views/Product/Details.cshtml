@@ -1,0 +1,13 @@
+@model ProductCatalog.Models.Product
+
+@{
+    ViewData["Title"] = "Детали продукта";
+}
+
+<h2>Детали продукта</h2>
+
+<p><strong>Id:</strong> @Model.Id</p>
+<p><strong>Название:</strong> @Model.Name</p>
+<p><strong>Цена:</strong> @Model.Price</p>
+
+<a asp-controller="Product" asp-action="ProduktIndex">Назад к списку</a>
