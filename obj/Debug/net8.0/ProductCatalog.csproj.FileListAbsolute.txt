@@ -195,3 +195,4 @@ C:\Users\Grego\ProductCatalog\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.D
 C:\Users\Grego\ProductCatalog\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\Grego\ProductCatalog\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Grego\ProductCatalog\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\Grego\ProductCatalog\obj\Debug\net8.0\ProductCatalog.sourcelink.json
