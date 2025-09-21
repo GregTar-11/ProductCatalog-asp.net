@@ -9,13 +9,18 @@ public class HomeController : Controller
 {
      private readonly IGreetingService _greetingService;
     private readonly ILogger<HomeController> _logger;
+    
+    public IActionResult ThrowError()
+        {
+            throw new Exception("Тестовое исключение");
+        }
 
     // DI внедрит GreetingService через конструктор
     public HomeController(IGreetingService greetingService, ILogger<HomeController> logger)
-        {
-            _greetingService = greetingService;
-            _logger = logger;
-        }
+    {
+        _greetingService = greetingService;
+        _logger = logger;
+    }
 
         public IActionResult Index()
         {
