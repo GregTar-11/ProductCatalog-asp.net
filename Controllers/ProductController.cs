@@ -10,9 +10,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ProductCatalog.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     [Authorize]
     public class ProductController : Controller
     {
+        private readonly List<Product> _products = new()
+        {
+            new Product { Id = 1, Name = "Phone", Price = 1000 },
+            new Product { Id = 2, Name = "Laptop", Price = 2000 }
+        };
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var product = _products.FirstOrDefault(p => p.Id == id);
+            return product is null ? NotFound() : Ok(product);
+        }
 
         private readonly AppDbContext _context;
 
