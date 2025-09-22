@@ -23,20 +23,25 @@ This is the Create view for adding a new product. It includes fields for the pro
 @model ProductCatalog.Models.Product
 
 @{
-    ViewData["Title"] = "Создать продукт";
+    ViewData["Title"] = "Створити продукт";
 }
 
-<h2>Создать продукт</h2>
+<h2>Створити продукт</h2>
 
 <form asp-action="Create" method="post">
     <div class="form-group">
-        <label asp-for="Name"></label>
+        <label asp-for="Name">Назва товару</label>
         <input asp-for="Name" class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="Price"></label>
+        <label asp-for="Price">Вартість</label>
         <input asp-for="Price" class="form-control" />
     </div>
-    <button type="submit" class="btn btn-success">Сохранить</button>
+    <div class="form-group">
+    <label asp-for="Category" class="control-label">Категорія</label>
+    <input asp-for="Category" class="form-control" />
+    <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Зберехти</button>
 </form>
-<a asp-action="ProduktIndex">Назад к списку</a>
+<a asp-action="ProduktIndex">Назад до списку</a>

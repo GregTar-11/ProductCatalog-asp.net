@@ -4,6 +4,7 @@ using ProductCatalog.Data;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 
 
@@ -21,13 +22,31 @@ namespace ProductCatalog.Controllers
         }
 
         [AllowAnonymous]// бачать всі
-        // GET: /Product/Index
-        public IActionResult ProduktIndex()
-        {
-            var products = _context.Products.ToList(); // берем из базы
-            return View(products);
-        }
+                        // GET: /Product/Index
+                        // public IActionResult ProduktIndex()
+                        // {
+                        //     var products = _context.Products.ToList(); // берем из базы
+                        //     return View(products);
+                        // }
+        
+public IActionResult ProduktIndex(string searchString, string category)
+{
+    var products = _context.Products.AsQueryable();
 
+    // Поиск по названию
+    if (!string.IsNullOrEmpty(searchString))
+    {
+        products = products.Where(p => EF.Functions.Like(p.Name, $"%{searchString}%"));
+    }
+
+    // Фильтрация по категории
+    if (!string.IsNullOrEmpty(category))
+    {
+        products = products.Where(p => p.Category == category);
+    }
+
+    return View(products);
+}
         [AllowAnonymous] // бачать всі
         // GET: /Product/Details/1
         public IActionResult Details(int id)
