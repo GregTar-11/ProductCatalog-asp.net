@@ -12,10 +12,10 @@ public class HomeController : Controller
     
     public IActionResult ThrowError()
         {
-            throw new Exception("Тестовое исключение");
+            throw new Exception("Виключення");
         }
 
-    // DI внедрит GreetingService через конструктор
+
     public HomeController(IGreetingService greetingService, ILogger<HomeController> logger)
     {
         _greetingService = greetingService;

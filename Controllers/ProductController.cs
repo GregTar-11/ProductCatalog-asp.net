@@ -21,32 +21,32 @@ namespace ProductCatalog.Controllers
             _context = context;
         }
 
-        [AllowAnonymous]// бачать всі
+        // бачать всі
                         // GET: /Product/Index
                         // public IActionResult ProduktIndex()
                         // {
                         //     var products = _context.Products.ToList(); // берем из базы
                         //     return View(products);
                         // }
-        
-public IActionResult ProduktIndex(string searchString, string category)
-{
-    var products = _context.Products.AsQueryable();
+        [AllowAnonymous]
+        public IActionResult ProduktIndex(string searchString, string category)
+        {
+            var products = _context.Products.AsQueryable();
 
-    // Поиск по названию
-    if (!string.IsNullOrEmpty(searchString))
-    {
-        products = products.Where(p => EF.Functions.Like(p.Name, $"%{searchString}%"));
-    }
+            // Поиск по названию
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => EF.Functions.Like(p.Name, $"%{searchString}%"));
+            }
 
-    // Фильтрация по категории
-    if (!string.IsNullOrEmpty(category))
-    {
-        products = products.Where(p => p.Category == category);
-    }
+            // Фильтрация по категории
+            if (!string.IsNullOrEmpty(category))
+            {
+                products = products.Where(p => p.Category == category);
+            }
 
-    return View(products);
-}
+            return View(products);
+        }
         [AllowAnonymous] // бачать всі
         // GET: /Product/Details/1
         public IActionResult Details(int id)
